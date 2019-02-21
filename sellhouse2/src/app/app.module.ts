@@ -14,6 +14,8 @@ import { AngularFireModule } from 'angularfire2';  //form9
 import { environment } from '../environments/environment'; //form9
 import { AngularFirestoreModule } from 'angularfire2/firestore'; //form9
 
+import { ReactiveFormsModule } from '@angular/forms'; //form1
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +28,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore'; //form9
     BrowserModule,
     AppRoutingModule
     ,ButtonsModule.forRoot() //bootstrap1
-    ,AngularFireModule.initializeApp(environment.firebase), //form9
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features //form9
+    ,AngularFireModule.initializeApp(environment.firebase) //form9
+    ,AngularFirestoreModule // imports firebase/firestore, only needed for database features //form9
+    ,ReactiveFormsModule //form1
   ],
   providers: [],
   bootstrap: [AppComponent]

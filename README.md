@@ -102,9 +102,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore'; //form9
 
 @NgModule({
 imports: [
-BrowserModule,
-AngularFireModule.initializeApp(environment.firebase),
-AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+  imports: [
+    ,AngularFireModule.initializeApp(environment.firebase) //form9
+    ,AngularFirestoreModule // imports firebase/firestore, only needed for database features //form9
 ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]
@@ -146,8 +146,10 @@ export class AppComponent {
 </ul>
 
 # adding forms
+## app.module.tx
 
-
+> import { ReactiveFormsModule } from '@angular/forms'; //form1
+>  imports: [ ,ReactiveFormsModule //form1
 
 
 # adding firestore 
