@@ -146,11 +146,109 @@ export class AppComponent {
 </ul>
 
 # adding forms
-## app.module.tx
+## app.module.ts
 
 > import { ReactiveFormsModule } from '@angular/forms'; //form1
 >  imports: [ ,ReactiveFormsModule //form1
 
+## form.component.ts
+>  import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'; //form12
+add to class
+```
+export class FormComponent implements OnInit {
 
-# adding firestore 
+  constructor(private fb: FormBuilder, 
+    private afs: AngularFirestore) { 
+      this.items = afs.collection('items').valueChanges();
+    }
 
+        //form11
+  items: Observable<any[]>;
+
+  ngOnInit() {
+
+    //form11
+     //add
+     this.myForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required],
+      message: ['', Validators.required]
+    })
+    this.myForm.valueChanges.subscribe();
+  }
+
+  myForm: FormGroup; //form11
+  //form state
+  loading = false;
+  success = false;
+
+  async submitHandler(){
+    this.loading = true;
+    const formValue = this.myForm.value;
+    try {
+      await this.afs.collection('items')
+        .add(formValue);
+        this.success = true;
+    } catch(err) { console.error(11,err)}
+    this.loading = false;
+  }
+  get email(){
+    return this.myForm.get('email');
+  }
+  get name(){
+    return this.myForm.get('name');
+  }
+  get message(){
+    return this.myForm.get('message');
+  }
+
+
+}
+```
+
+## add to form.component.html
+```
+<p>
+    fireformgroup works!
+  </p>
+  
+  
+  <div class="jumbotron">
+  
+    <!-- form11 test -->
+  <ul>
+      <li class="text" *ngFor="let item of items | async">
+        {{item.name}}, {{item.email}}, {{item.message}}
+      </li>
+    </ul>
+    <!-- ends -->
+    </div>
+  
+  
+  
+  
+  <div class="jumbotron">
+      <!-- form11firebase reativeforms -->
+  <form [formGroup]="myForm" [hidden]="success" (ngSubmit)="submitHandler()">
+      <input formControlName="email">
+      <span *ngIf="email.invalid && email.touched">
+          Your email does not look right
+      </span>
+      <input formControlName="name">
+      <span *ngIf="message.invalid && message.touched">
+          Required field
+      </span>
+      <input formControlName="message">
+      <span *ngIf="message.invalid && message.touched">
+          Required field
+      </span>
+      <button class="btn btn-primary" [disabled]="myForm.invalid">submit</button>
+    </form>
+    <!-- ends -->
+  
+    <div *ngIf="success" class="notification is-success">
+        <h1>submit success</h1>
+      </div>
+  
+  </div>
+  ```
