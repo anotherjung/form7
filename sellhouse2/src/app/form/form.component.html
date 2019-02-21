@@ -1,3 +1,11 @@
 <p>
   form works!
 </p>
+
+<!-- form11 -->
+<ul>
+    <li class="text" *ngFor="let item of items | async">
+      {{item.name}}, {{item.email}}
+    </li>
+  </ul>
+  <!-- ends -->
