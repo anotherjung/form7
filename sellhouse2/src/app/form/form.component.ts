@@ -27,8 +27,10 @@ export class FormComponent implements OnInit {
      //add
      this.myForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      name: ['', Validators.required],
-      message: ['', Validators.required]
+      name: [''],
+      message: [''],
+      address: [''],
+      phone: ['', Validators.required]
     })
     this.myForm.valueChanges.subscribe();
   }

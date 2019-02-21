@@ -252,3 +252,32 @@ export class FormComponent implements OnInit {
   
   </div>
   ```
+
+# adding design & content
+see history
+
+
+#carosal 
+## name.component.html  
+```
+      <!-- start homeowner image  -->
+      <div class="jumbotron row">
+          <carousel>
+              <slide>
+                <img src="../../assets/photos/heavenlysnowed.jpg" alt="second slide" style="display: block; width: 100%;">
+              </slide>
+              <slide>
+                  <img src="../../assets/photos/snowboardinghandstand.jpg" alt="first slide" style="display: block; width: 100%;">
+                </slide>
+              <slide>
+                <img src="../../assets/photos/bigsurcoast.jpg" alt="third slide" style="display: block; width: 100%;">
+              </slide>
+              <slide>
+                  <img src="../../assets/photos/ferryny.jpg" alt="third slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img src="../../assets/photos/hawaiihikesunset.jpg" alt="third slide" style="display: block; width: 100%;">
+                  </slide>
+            </carousel>
+      </div>
+      ```

@@ -1,0 +1,36 @@
+<!-- <p>
+productvideo1learnmore works!
+</p> -->
+<!-- background looping video, clicks to popup fullvideo  -->
+<header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+    </video>
+    <div class="container h-100">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white">
+          <h1 class="display-3">Sell Your House</h1>
+          <p class="lead mb-0">No Fees, No Commissons, Tax Free</p>
+          <button type="button" class="btn btn-primary" (click)="openModal(template)">Learn More</button>
+  
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- start modal  -->
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">How It Works</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/310677694" allowfullscreen></iframe>
+          </div>
+    </div>
+  </ng-template>
+  

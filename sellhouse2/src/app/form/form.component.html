@@ -1,44 +1,61 @@
-<p>
-    fireformgroup works!
-  </p>
-  
-  
+
   <div class="jumbotron">
-  
-    <!-- form11 test -->
-  <ul>
-      <li class="text" *ngFor="let item of items | async">
-        {{item.name}}, {{item.email}}, {{item.message}}
-      </li>
-    </ul>
-    <!-- ends -->
-    </div>
-  
-  
-  
-  
-  <div class="jumbotron">
+
+      <h2 class="display-5">Sell your house in San Jose</h2>
+      <p class="lead">No Fees. No Commisions. Save for your retirement.</p>
+      <hr class="my-4">
+      <p class="lead">We buy houses in any condition. Specialize in single-family fixer homes. </p>
       <!-- form11firebase reativeforms -->
   <form [formGroup]="myForm" [hidden]="success" (ngSubmit)="submitHandler()">
-      <input formControlName="email">
-      <span *ngIf="email.invalid && email.touched">
-          Your email does not look right
-      </span>
-      <input formControlName="name">
-      <span *ngIf="message.invalid && message.touched">
-          Required field
-      </span>
-      <input formControlName="message">
-      <span *ngIf="message.invalid && message.touched">
-          Required field
-      </span>
+
+      <div class="form-group">
+          <label for="exampleInputName1">Name</label>
+          <input formControlName="name" type="name" class="form-control" id="exampleInputName1" placeholder="Name">
+          <span *ngIf="message.invalid && message.touched">Required field</span>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPhone1">Phone</label>
+            <input formControlName="phone"  type="phone" class="form-control" id="exampleInputPhone1" placeholder="Phone">
+          </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <span *ngIf="email.invalid && email.touched">
+                Your email does not look right
+            </span>
+          </div>
+
+          <div class="form-group">
+              <label for="exampleInputAddress1">Address</label>
+              <input formControlName="address"  type="text" class="form-control" id="exampleInputAddress1" placeholder="Address">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputMessage1">Message</label>
+                <input formControlName="message" formControlName="message"  type="text" class="form-control" id="exampleInputmessage1" placeholder="Message">
+                <span *ngIf="message.invalid && message.touched">
+                    Required field
+                </span>
+              </div>
+
       <button class="btn btn-primary" [disabled]="myForm.invalid">submit</button>
     </form>
     <!-- ends -->
   
     <div *ngIf="success" class="notification is-success">
         <h1>submit success</h1>
+            <!-- form11 test -->
+  <ul>
+      <li class="text" *ngFor="let item of items | async">
+        {{item.name}}, {{item.email}}, {{item.phone}}, {{item.address}}, {{item.message}}
+      </li>
+    </ul>
+    <!-- ends -->
+    </div>
       </div>
   
-  </div>
+
   

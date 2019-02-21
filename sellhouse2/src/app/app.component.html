@@ -1,7 +1,32 @@
-<button type="button" class="btn btn-primary">
-    Single Button {{title}}
-  </button>
-
-
+<nav id="mainNavbar" class="navbar navbar-expand-lg ">
   
-<router-outlet></router-outlet>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" 
+      (click)="toggleCollapsed()">
+      <span class="navbar-toggler-icon">nav</span>
+    </button>
+  
+    <a class="navbar-brand h3 order-0" [routerLink]="['./']">i light homes </a>
+  
+    <!-- <a class="btn btn-primary ml-2 order-4 " [routerLink]="['./contact']" >Contact</a> -->
+    
+  
+    <div id="navbarSupportedContent order-2" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <div class="navbar-nav h3 bg-dark">
+        <a class="nav-item nav-link mx-auto" [routerLink]="['./home']" (click)="toggleCollapsed()" >Home </a>
+        <!-- <span class="sr-only">(current)</span> -->
+        <a class="nav-item nav-link mx-auto" [routerLink]="['./about']" (click)="toggleCollapsed()" >About</a>
+        <a class="nav-item nav-link mx-auto" [routerLink]="['./contact']" (click)="toggleCollapsed()" >Contact</a>
+      </div>
+    </div>
+  </nav>
+  
+  <router-outlet (activate)="onActivate($event)" ></router-outlet>
+  <!-- <app-home></app-home> -->
+  
+<!-- FOOTER -->
+<footer class="container">
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2017-2018 I Light Homes </p>
+  </footer>
+  
