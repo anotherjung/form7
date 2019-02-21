@@ -281,3 +281,13 @@ see history
             </carousel>
       </div>
       ```
+
+
+# install firebase functions
+>cd form7
+## adding firebase functions, functions, firestore, hosting, defaults
+>firebase init
+>npm install @sendgrid/mail --save
+## update functions/index.js, remove comments for helloword
+## start functions
+>firebase deploy --only functions

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "starthere-ff136"
+    "default": "starthere-ff136",
+    "prod": "ilighthomescom"
   }
 }
